@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bari0xit · portfolio</title>
+    <!-- Font Awesome cho icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font (Poppins cho đẹp) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #f0f9ff 0%, #e6f3fa 100%);
+            color: #1e2f4d;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -10px rgba(0, 100, 150, 0.25);
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Profile */
+        .profile {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 15px 25px -8px rgba(0, 160, 209, 0.4);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0a4b6e;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.25rem;
+            text-shadow: 0 2px 5px rgba(255, 255, 255, 0.8);
+        }
+
+        .bio {
+            font-size: 1.2rem;
+            color: #2b5876;
+            font-weight: 400;
+            background: rgba(135, 206, 235, 0.2);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(135, 206, 235, 0.6);
+        }
+
+        /* projects section */
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0a4b6e;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 70%;
+            height: 4px;
+            background: linear-gradient(90deg, #4aa3c9, #b3e4ff);
+            border-radius: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 28px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 15px 30px -10px rgba(0, 150, 200, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 45px -10px #4aa3c9;
+            border-color: #87CEEB;
+        }
+
+        .card i {
+            font-size: 3.5rem;
+            color: #0a6b8f;
+            background: rgba(135, 206, 235, 0.25);
+            width: 85px;
+            height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            margin-bottom: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .card:hover i {
+            background: #87CEEB;
+            color: white;
+            border-radius: 40% 20% 40% 20%;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #0d4b6e;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: #2b4d66;
+            margin-bottom: 1.8rem;
+            font-weight: 300;
+            flex-grow: 1;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #6ec8e0, #3b9ac6);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: 0.2s;
+            box-shadow: 0 8px 18px -6px #2b8eb0;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #3fa9ca, #1f7da3);
+            box-shadow: 0 12px 22px -8px #1e6f94;
+            transform: scale(1.02);
+        }
+
+        /* skills extra */
+        .extra {
+            margin: 3rem 0 2rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .skills span {
+            background: rgba(135, 206, 235, 0.25);
+            backdrop-filter: blur(4px);
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #075176;
+            border: 1px solid #9fd3f0;
+            transition: 0.2s;
+        }
+
+        .skills span:hover {
+            background: #87CEEB;
+            color: white;
+            border-color: white;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #3e6982;
+            font-size: 1rem;
+            border-top: 2px dashed rgba(135, 206, 235, 0.7);
+            padding-top: 2rem;
+        }
+
+        /* responsive tinh tế */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+            h1 {
+                font-size: 2.3rem;
+            }
+            .avatar {
+                width: 110px;
+                height: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile -->
+        <div class="profile">
+            <!-- Thay link này bằng ảnh thật của bạn, hoặc dùng avatar mẫu -->
+            <img src="https://github.com/identicons/bari0xit.png" alt="bari0xit avatar" class="avatar">
+            <h1>bari0xit</h1>
+            <div class="bio">🧑‍💻 lập trình viên & người thích sáng tạo</div>
+        </div>
+
+        <!-- Dự án nổi bật -->
+        <h2>📂 dự án · thử nghiệm</h2>
+        <div class="grid">
+            <!-- Word Counter -->
+            <div class="card">
+                <i class="fas fa-file-alt"></i>
+                <h3>Word Counter</h3>
+                <p>Đếm từ, ký tự, câu – nhanh gọn, chính xác. Dành cho writer và editor.</p>
+                <a href="https://baobao247.github.io/wordcounter/" target="_blank" class="btn">dùng thử <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+            </div>
+            <!-- 2405 -->
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h3>2405</h3>
+                <p>Một góc thử nghiệm giao diện, tương tác nhẹ nhàng, mang hơi thở retro.</p>
+                <a href="https://baobao247.github.io/2405/" target="_blank" class="btn">khám phá <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+            </div>
+            <!-- Tính Điểm -->
+            <div class="card">
+                <i class="fas fa-calculator"></i>
+                <h3>Tính Điểm</h3>
+                <p>Công cụ tính điểm trung bình, xếp loại học tập – dành cho học sinh, sinh viên.</p>
+                <a href="https://baobao247.github.io/tinhdiem/" target="_blank" class="btn">tính ngay <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+            </div>
+        </div>
+
+        <!-- Phần thú vị bổ sung: kỹ năng + câu nói  -->
+        <div class="extra">
+            <h2>⚡ thử tài & kỹ năng</h2>
+            <div class="skills">
+                <span>HTML / CSS</span>
+                <span>JavaScript</span>
+                <span>Python</span>
+                <span>React (cơ bản)</span>
+                <span>UI design</span>
+                <span>Git & GitHub</span>
+            </div>
+            <p style="margin-top: 2rem; font-style: italic; color: #2c6079; background: rgba(255,255,255,0.5); padding: 1rem 1.8rem; border-radius: 60px;">
+                <i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.7;"></i> 
+                Mỗi dòng code là một câu chuyện, mỗi dự án là một hành trình.
+            </p>
+        </div>
+
+        <footer>
+            <p>© 2025 · làm bằng 💙 từ bari0xit · <i class="fas fa-cloud-sun" style="color: #4aa3c9;"></i></p>
+        </footer>
+    </div>
+
+    <!-- (optional) hiệu ứng nhấp nháy nhẹ cho vui -->
+</body>
+  </html>
